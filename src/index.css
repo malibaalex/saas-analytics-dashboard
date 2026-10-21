@@ -1,1 +1,141 @@
+/* ==========================================================================
+   Tailwind v4 entry
+   ========================================================================== */
 @import "tailwindcss";
+
+/* Enable class-based dark mode: add `class="dark"` to <html> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ==========================================================================
+   DESIGN TOKENS
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/*  LIGHT THEME                                                               */
+/* -------------------------------------------------------------------------- */
+:root {
+  /* ---- Surfaces ---- */
+  --color-background: oklch(0.932 0.005 264.53); /* #eaebee */
+  --color-card: oklch(1 0 0); /* #ffffff */
+  --color-muted: oklch(0.965 0.003 264.54); /* #f4f5f7 */
+
+  /* ---- Text ---- */
+  --color-foreground: oklch(0.208 0.015 264.12); /* #191c21 */
+  --color-muted-foreground: oklch(0.627 0.012 264.18); /* #8f949d */
+
+  /* ---- Borders ---- */
+  --color-border: oklch(0.912 0.005 264.53); /* #e2e4e9 */
+
+  /* ---- Brand / Primary ---- */
+  --color-primary: oklch(0.612 0.203 38.64); /* #eb5833 */
+  --color-primary-foreground: oklch(1 0 0); /* #ffffff */
+
+  /* ---- Secondary ---- */
+  --color-secondary: oklch(0.208 0.015 264.12); /* #191c21 */
+  --color-secondary-foreground: oklch(1 0 0); /* #ffffff */
+
+  /* ---- Accent ---- */
+  --color-accent: oklch(0.482 0.098 178.43); /* #0c6e61 */
+  --color-accent-foreground: oklch(1 0 0); /* #ffffff */
+
+  /* ---- Status ---- */
+  --color-success: oklch(0.725 0.165 142.5); /* #22c55e */
+  --color-destructive: oklch(0.577 0.245 27.325); /* #dc2626 */
+  --color-destructive-foreground: oklch(1 0 0); /* #ffffff */
+
+  /* ---- Typography ---- */
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  DARK THEME — only color tokens override                                   */
+/* -------------------------------------------------------------------------- */
+.dark {
+  /* ---- Surfaces ---- */
+  --color-background: oklch(0.145 0.005 264.53); /* #121316 */
+  --color-card: oklch(0.205 0.008 264.25); /* #1c1e24 */
+  --color-muted: oklch(0.265 0.01 264.2); /* #262931 */
+
+  /* ---- Text ---- */
+  --color-foreground: oklch(0.965 0.003 264.54); /* #f4f5f7 */
+  --color-muted-foreground: oklch(0.685 0.012 264.18); /* #a1a6b0 */
+
+  /* ---- Borders ---- */
+  --color-border: oklch(0.285 0.008 264.2); /* #2a2d36 */
+
+  /* ---- Brand / Primary ---- */
+  --color-primary: oklch(0.675 0.198 38.64); /* #f46c48 */
+  --color-primary-foreground: oklch(0.985 0 0); /* #ffffff */
+
+  /* ---- Secondary ---- */
+  --color-secondary: oklch(0.285 0.01 264.2); /* #2c303a */
+  --color-secondary-foreground: oklch(0.965 0.003 264.54); /* #f4f5f7 */
+
+  /* ---- Accent ---- */
+  --color-accent: oklch(0.625 0.115 178.43); /* #1cb39f */
+  --color-accent-foreground: oklch(0.985 0 0); /* #ffffff */
+
+  /* ---- Status ---- */
+  --color-success: oklch(0.765 0.16 142.5); /* #34d399 */
+  --color-destructive: oklch(0.637 0.237 25.331); /* #ef4444 */
+  --color-destructive-foreground: oklch(0.985 0 0); /* #fafafa */
+}
+
+/* ==========================================================================
+   TAILWIND BRIDGE
+   `inline` lets the utilities reference the var at runtime → dark mode swaps work
+   ========================================================================== */
+@theme inline {
+  /* Colors */
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-card: var(--color-card);
+  --color-muted: var(--color-muted);
+  --color-muted-foreground: var(--color-muted-foreground);
+  --color-border: var(--color-border);
+  --color-primary: var(--color-primary);
+  --color-primary-foreground: var(--color-primary-foreground);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-foreground: var(--color-secondary-foreground);
+  --color-accent: var(--color-accent);
+  --color-accent-foreground: var(--color-accent-foreground);
+  --color-success: var(--color-success);
+  --color-destructive: var(--color-destructive);
+  --color-destructive-foreground: var(--color-destructive-foreground);
+
+  /* Typography */
+  --font-sans: var(--font-sans);
+  --font-weight-regular: var(--font-weight-regular);
+  --font-weight-medium: var(--font-weight-medium);
+  --font-weight-semibold: var(--font-weight-semibold);
+  --font-weight-bold: var(--font-weight-bold);
+}
+
+/* ==========================================================================
+   BASE STYLES
+   ========================================================================== */
+html {
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-regular);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  border-color: var(--color-border);
+}
