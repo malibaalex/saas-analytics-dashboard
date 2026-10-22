@@ -2,6 +2,7 @@ import { buttonVariants } from "./components/ui/button-variants";
 import Heading from "./components/ui/Heading";
 import Link from "./components/ui/Link";
 import Text from "./components/ui/Text";
+import DashboardPage from "./features/dashboard/DashboardPage";
 import LandingPage from "./features/landing/LandingPage";
 import useCurrentRoute from "./use-current-routes";
 
@@ -23,7 +24,7 @@ const Routes = () => {
     case "landing":
       return <LandingPage />;
     case "dashboard":
-    //   return <DashboardPage />;
+      return <DashboardPage />;
     default:
       return <NotFound />;
   }
