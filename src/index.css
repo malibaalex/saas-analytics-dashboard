@@ -1,4 +1,9 @@
 /* ==========================================================================
+   Font — url imports must come before every other rule
+   ========================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+/* ==========================================================================
    Tailwind v4 entry
    ========================================================================== */
 @import "tailwindcss";
@@ -116,10 +121,38 @@
 }
 
 /* ==========================================================================
+   TYPE SCALE — generates text-display, text-h1, text-h2, text-h3,
+   text-body, text-small (used by Heading and Text)
+   ========================================================================== */
+@theme {
+  --text-display: 3.25rem;
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: -0.035em;
+
+  --text-h1: 2rem;
+  --text-h1--line-height: 1.15;
+  --text-h1--letter-spacing: -0.025em;
+
+  --text-h2: 1.375rem;
+  --text-h2--line-height: 1.25;
+  --text-h2--letter-spacing: -0.015em;
+
+  --text-h3: 1.0625rem;
+  --text-h3--line-height: 1.35;
+
+  --text-body: 0.9375rem;
+  --text-body--line-height: 1.6;
+
+  --text-small: 0.8125rem;
+  --text-small--line-height: 1.5;
+}
+
+/* ==========================================================================
    BASE STYLES
    ========================================================================== */
 html {
   color-scheme: light;
+  scroll-behavior: smooth; /* "New report" button scrolls to the form */
 }
 html.dark {
   color-scheme: dark;
@@ -138,4 +171,10 @@ body {
 *::before,
 *::after {
   border-color: var(--color-border);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
