@@ -1,5 +1,15 @@
+import Routes from "./routes";
+import ThemeProvider from "./state/theme/theme-provider";
+import ToastProvider from "./state/toast/ToastProvider";
+
 const App = () => {
-  return <div className="m-8 rounded-3xl bg-card p-6 text-h1 text-primary">Tokens work</div>;
+  return (
+    <ThemeProvider>
+      <ToastProvider>
+        <Routes />
+      </ToastProvider>
+    </ThemeProvider>
+  );
 };
 
 export default App;
