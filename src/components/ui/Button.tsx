@@ -1,5 +1,5 @@
 import React from "react";
-import { buttonVariants, type ButtonVariantsProps } from "./button-variants";
+import { buttonVariants, type ButtonVariantsProps } from "./buttonVariants";
 import cn from "../../lib/c";
 
 export interface ButtonProps
