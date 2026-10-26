@@ -1,5 +1,5 @@
-import { useTheme } from "../../context/theme";
-import { icons } from "../../lib/data/landing-page-data";
+import { useTheme } from "../../context";
+import { icons } from "../../lib/data/landing";
 import Button from "./Button";
 import Icon from "./Icon";
 

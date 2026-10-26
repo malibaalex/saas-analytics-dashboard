@@ -1,5 +1,5 @@
 import cn from "../../lib/c";
-import { icons } from "../../lib/data/landing-page-data";
+import { icons } from "../../lib/data/landing";
 import Icon from "./Icon";
 
 type LogoProps = {
