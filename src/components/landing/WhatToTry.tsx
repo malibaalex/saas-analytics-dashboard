@@ -13,7 +13,7 @@ import {
   whatToTryContent,
   type TryCardData,
 } from "../../lib/data/landing";
-import { Button, buttonVariants, Container, Icon } from "../ui";
+import { Button, buttonVariants, Container, Icon, Reveal } from "../ui";
 import TryCard from "./TryCard";
 
 const previewBox = "rounded-xl border border-border bg-muted/60 p-4";
@@ -165,27 +165,32 @@ const tablePills = (
 const WhatToTry = () => (
   <section id="demo" aria-labelledby="demo-heading" className="mb-20 pt-6">
     <Container>
-      <div className="mb-10 max-w-2xl">
+      <Reveal className="mb-10 max-w-2xl">
         <h2 id="demo-heading" className="mb-3 text-h1 font-extrabold text-foreground">
           {whatToTryContent.heading}
         </h2>
         <p className="text-body text-muted-foreground">{whatToTryContent.description}</p>
-      </div>
+      </Reveal>
 
       <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2">
-        {tryCards.map((card) => (
-          <TryCard
+        {tryCards.map((card, i) => (
+          <Reveal
             key={card.id}
-            number={card.number}
-            title={card.title}
-            description={card.description}
-            href={card.href}
-            tag={card.tag}
-            headerAside={card.id === "table" ? tablePills : undefined}
-            className={card.wide ? "md:col-span-2" : undefined}
+            delay={(i % 2) * 100}
+            className={cn("h-full", card.wide && "md:col-span-2")}
           >
-            {previews[card.id]}
-          </TryCard>
+            <TryCard
+              number={card.number}
+              title={card.title}
+              description={card.description}
+              href={card.href}
+              tag={card.tag}
+              headerAside={card.id === "table" ? tablePills : undefined}
+              className="h-full"
+            >
+              {previews[card.id]}
+            </TryCard>
+          </Reveal>
         ))}
       </div>
     </Container>
