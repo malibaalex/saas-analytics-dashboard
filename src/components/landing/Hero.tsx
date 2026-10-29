@@ -1,37 +1,49 @@
 import cn from "../../lib/c";
 import { dashboardHref, heroContent, icons, trustItems } from "../../lib/data/landing";
 import { buttonVariants, Container, Icon } from "../ui";
+import HeroBackground from "./HeroBackground";
 import HeroPreview from "./HeroPreview";
 
 const Hero = () => {
   return (
-    <section aria-label="hero-heading" className="mb-16 mt-6 sm:mt-10 md:mb-24">
-      <Container>
-        <div className="mb-10  max-w-3xl">
-          <div className="mb-5 inline-flex items-centter gap-2 rounded-full border border-border bg-card px-3 py-1 text-small font-semibold text-foreground shadow-xs">
+    <section aria-labelledby="hero-heading" className="relative mb-16 mt-6 sm:mt-10 md:mb-24">
+      <HeroBackground />
+
+      <Container className="relative">
+        <div className="mb-10 max-w-5xl">
+          <div
+            className="hero-load-item mb-4 inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/70 px-3 py-1 text-small font-medium text-muted-foreground"
+            style={{ animationDelay: "0ms" }}
+          >
             <span className="size-2 animate-pulse rounded-full bg-primary" aria-hidden="true" />
             <span>{heroContent.badge}</span>
           </div>
 
           <h1
             id="hero-heading"
-            className="mb-5 text-h1 font-extrabold text-foreground sm:text-display"
+            className="hero-load-item mb-6 text-balance text-[2.75rem] font-medium leading-[1.03] tracking-[-0.045em] text-foreground sm:text-[3.725rem] lg:text-[5rem]"
+            style={{ animationDelay: "80ms" }}
           >
             {heroContent.title}
           </h1>
 
-          <p className="mb-8 max-w-2xl text-body text-muted-foreground sm:text-h3">
+          <p
+            className="hero-load-item mb-8 max-w-2xl text-body text-muted-foreground sm:text-h3"
+            style={{ animationDelay: "160ms" }}
+          >
             {heroContent.description}
           </p>
 
-          <div className="mb-6 flex flex-wrap items-center gap-3.5">
+          <div
+            className="hero-load-item mb-6 flex flex-wrap items-center gap-3.5"
+            style={{ animationDelay: "240ms" }}
+          >
             <a
               href={dashboardHref}
               className={cn(buttonVariants({ variant: "primary", size: "lg" }))}
             >
               {heroContent.primaryCta}
             </a>
-
             <a
               href="#demo"
               className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "bg-card")}
@@ -40,7 +52,10 @@ const Hero = () => {
             </a>
           </div>
 
-          <ul className="flex flex-wrap items-center gap-x-5 gap-y-2 text-small font-medium text-muted-foreground">
+          <ul
+            className="hero-load-item flex flex-wrap items-center gap-x-5 gap-y-2 text-small font-medium text-muted-foreground"
+            style={{ animationDelay: "320ms" }}
+          >
             {trustItems.map((item) => (
               <li key={item} className="flex items-center gap-1.5">
                 <Icon paths={icons.check} strokeWidth={2.5} className="size-3.5 text-accent" />
@@ -50,7 +65,9 @@ const Hero = () => {
           </ul>
         </div>
 
-        <HeroPreview />
+        <div className="hero-load-item" style={{ animationDelay: "420ms" }}>
+          <HeroPreview />
+        </div>
       </Container>
     </section>
   );
