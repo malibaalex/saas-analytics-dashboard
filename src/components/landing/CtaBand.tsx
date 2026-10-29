@@ -1,5 +1,6 @@
 import { ctaContent, dashboardHref } from "../../lib/data/landing";
-import { buttonVariants, Container, Reveal } from "../ui";
+import { buttonVariants, Container } from "../ui";
+import Reveal from "./Reavel";
 
 const CtaBand = () => (
   <section aria-labelledby="cta-heading" className="mb-16">

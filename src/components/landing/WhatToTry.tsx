@@ -13,8 +13,9 @@ import {
   whatToTryContent,
   type TryCardData,
 } from "../../lib/data/landing";
-import { Button, buttonVariants, Container, Icon, Reveal } from "../ui";
+import { Button, buttonVariants, Container, Icon } from "../ui";
 import TryCard from "./TryCard";
+import Reveal from "./Reavel";
 
 const previewBox = "rounded-xl border border-border bg-muted/60 p-4";
 
